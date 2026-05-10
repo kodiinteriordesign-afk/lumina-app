@@ -19,12 +19,13 @@
             text-align: center; 
             opacity: 0; 
             animation: fadeIn 2.5s ease-out forwards; 
+            padding-bottom: 50px; /* 為底部留出空間 */
         }
 
         h1 { 
             font-weight: 100; 
             font-size: 2.8rem; 
-            margin-bottom: 10px; 
+            margin: 0;
             letter-spacing: 0.35em; 
             text-transform: uppercase;
         }
@@ -32,14 +33,13 @@
         .tagline { 
             font-weight: 200; 
             font-size: 0.85rem; 
-            color: #666; 
-            margin-bottom: 40px;
-            letter-spacing: 0.2em;
+            color: #888; 
+            margin-top: 15px;
+            letter-spacing: 0.3em; /* 稍微拉寬，對齊標題的視覺寬度 */
         }
 
-        /* 呢度就係你想要嘅「仔」：導航選單 */
         nav {
-            margin-top: 30px;
+            margin-top: 80px; /* 增加間距，讓中間視覺更平衡 */
         }
 
         nav a {
@@ -47,26 +47,28 @@
             color: #999;
             font-size: 0.75rem;
             font-weight: 300;
-            letter-spacing: 0.15em;
-            margin: 0 20px;
+            letter-spacing: 0.2em;
+            margin: 0 25px;
             transition: color 0.4s ease;
             cursor: pointer;
         }
 
-        nav a:hover {
-            color: #000; /* 滑鼠移過時會變深色，有互動感 */
-        }
+        nav a:hover { color: #000; }
 
+        /* 將版權資訊移到最底，不干擾中心視線 */
         .footer { 
             position: absolute;
-            bottom: 40px;
-            font-size: 0.65rem; 
-            color: #BBB; 
-            letter-spacing: 0.1em;
+            bottom: 30px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.6rem; 
+            color: #CCC; 
+            letter-spacing: 0.15em;
+            font-weight: 200;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
@@ -77,12 +79,12 @@
         <div class="tagline">精密 · 極簡 · 永恆</div>
         
         <nav>
-            <a onclick="alert('作品集正在策展中...')">WORKS</a>
-            <a onclick="alert('關於 LUMINÉÉ 正在編寫中...')">ABOUT</a>
-            <a onclick="alert('聯絡功能即將開啟...')">CONTACT</a>
+            <a onclick="alert('作品集策展中...')">WORKS</a>
+            <a onclick="alert('品牌故事編寫中...')">ABOUT</a>
+            <a onclick="alert('聯絡方式即將開啟...')">CONTACT</a>
         </nav>
-
-        <div class="footer">© 2026 LUMINÉÉ. ALL RIGHTS RESERVED.</div>
     </div>
+
+    <div class="footer">© 2026 LUMINÉÉ. ALL RIGHTS RESERVED.</div>
 </body>
 </html>
