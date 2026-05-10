@@ -1,58 +1,88 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LUMINÉÉ | 精密極簡・空間美學</title>
-<style>
-body {
-margin: 0;
-padding: 0;
-background-color: #FFFFFF;
-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-color: #1A1A1A;
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-letter-spacing: 0.15em;
-}
-.container {
-text-align: center;
-border: 1px solid #F2F2F2;
-padding: 60px 100px;
-transition: all 0.8s ease;
-}
-.container:hover {
-border-color: #E6E6E6;
-}
-h1 {
-font-weight: 200;
-font-size: 2.5rem;
-margin-bottom: 20px;
-text-transform: uppercase;
-}
-p {
-font-weight: 300;
-font-size: 0.9rem;
-color: #888;
-line-height: 2;
-}
-.footer {
-margin-top: 40px;
-font-size: 0.7rem;
-color: #CCCCCC;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMINÉÉ | 精密極簡・空間美學</title>
+    <style>
+        body { 
+            margin: 0; padding: 0; 
+            background-color: #FAFAFA; 
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+            color: #1A1A1A; 
+            display: flex; justify-content: center; align-items: center; 
+            height: 100vh; 
+            overflow: hidden;
+        }
+
+        .container { 
+            text-align: center; 
+            opacity: 0; 
+            animation: fadeIn 2.5s ease-out forwards; 
+        }
+
+        h1 { 
+            font-weight: 100; 
+            font-size: 2.8rem; 
+            margin-bottom: 10px; 
+            letter-spacing: 0.35em; 
+            text-transform: uppercase;
+        }
+
+        .tagline { 
+            font-weight: 200; 
+            font-size: 0.85rem; 
+            color: #666; 
+            margin-bottom: 40px;
+            letter-spacing: 0.2em;
+        }
+
+        /* 呢度就係你想要嘅「仔」：導航選單 */
+        nav {
+            margin-top: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #999;
+            font-size: 0.75rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            margin: 0 20px;
+            transition: color 0.4s ease;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: #000; /* 滑鼠移過時會變深色，有互動感 */
+        }
+
+        .footer { 
+            position: absolute;
+            bottom: 40px;
+            font-size: 0.65rem; 
+            color: #BBB; 
+            letter-spacing: 0.1em;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-<h1>LUMINÉÉ</h1>
-<p>精密 · 極簡 · 永恆</p>
-<p>25 年設計與攝影底蘊的數位重塑</p>
-<div class="footer">
-© 2026 LUMINÉÉ. ESTABLISHED FOR 2028.
-</div>
-</div>
+    <div class="container">
+        <h1>LUMINÉÉ</h1>
+        <div class="tagline">精密 · 極簡 · 永恆</div>
+        
+        <nav>
+            <a onclick="alert('作品集正在策展中...')">WORKS</a>
+            <a onclick="alert('關於 LUMINÉÉ 正在編寫中...')">ABOUT</a>
+            <a onclick="alert('聯絡功能即將開啟...')">CONTACT</a>
+        </nav>
+
+        <div class="footer">© 2026 LUMINÉÉ. ALL RIGHTS RESERVED.</div>
+    </div>
 </body>
 </html>
