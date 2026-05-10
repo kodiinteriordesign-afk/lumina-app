@@ -19,7 +19,7 @@
             text-align: center; 
             opacity: 0; 
             animation: fadeIn 2.5s ease-out forwards; 
-            padding-bottom: 50px; /* 為底部留出空間 */
+            padding-bottom: 60px; /* 稍微增加底部留白，讓重心更穩 */
         }
 
         h1 { 
@@ -33,13 +33,13 @@
         .tagline { 
             font-weight: 200; 
             font-size: 0.85rem; 
-            color: #888; 
+            color: #666; /* 稍微加深 Tagline，與 Footer 形成層次 */
             margin-top: 15px;
-            letter-spacing: 0.3em; /* 稍微拉寬，對齊標題的視覺寬度 */
+            letter-spacing: 0.3em; 
         }
 
         nav {
-            margin-top: 80px; /* 增加間距，讓中間視覺更平衡 */
+            margin-top: 85px; /* 再次微調間距 */
         }
 
         nav a {
@@ -55,14 +55,14 @@
 
         nav a:hover { color: #000; }
 
-        /* 將版權資訊移到最底，不干擾中心視線 */
+        /* 修正：提升 Footer 的清晰度 */
         .footer { 
             position: absolute;
-            bottom: 30px;
+            bottom: 35px; /* 稍微上移，避開手機底部的導航條 */
             width: 100%;
             text-align: center;
             font-size: 0.6rem; 
-            color: #CCC; 
+            color: #999; /* 修正：使用更清晰的高級灰，保證可讀性 */
             letter-spacing: 0.15em;
             font-weight: 200;
         }
@@ -76,9 +76,7 @@
 <body>
     <div class="container">
         <h1>LUMINÉÉ</h1>
-        <div class="tagline">精密 · 極簡 · 永恆</div>
-        
-        <nav>
+        <div class="tagline">精密 · 極簡 · 恆久</div> <nav>
             <a onclick="alert('作品集策展中...')">WORKS</a>
             <a onclick="alert('品牌故事編寫中...')">ABOUT</a>
             <a onclick="alert('聯絡方式即將開啟...')">CONTACT</a>
