@@ -1,77 +1,136 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUMINÉÉ | 精密極簡・空間美學</title>
-    <style>
-        body { 
-            margin: 0; padding: 0; 
-            background-color: #FFFFF; 
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
-            color: #1A1A1A; 
-            display: flex; justify-content: center; align-items: center; 
-            height: 100vh; 
-            overflow: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMINÉÉ ｜ 精密極簡．空間美學</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #FFFFFF;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: #1A1A1A;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-        .container { 
-            text-align: center; 
-            opacity: 0; 
-            animation: fadeIn 2.5s ease-out forwards; 
-            padding-bottom: 60px; /* 稍微增加底部留白，讓重心更穩 */
-        }
+    .container {
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 2.5s ease-out forwards;
+      padding-bottom: 60px;
+    }
 
-        h1 { 
-            font-weight: 100; 
-            font-size: 2.8rem; 
-            margin: 0;
-            letter-spacing: 0.35em; 
-            text-transform: uppercase;
-        }
+    h1 {
+      font-weight: 100;
+      font-size: 2.5rem;
+      letter-spacing: 0.4em;
+      margin-bottom: 20px;
+      margin-left: 0.4em;
+    }
 
-        .tagline { 
-            font-weight: 200; 
-            font-size: 0.85rem; 
-            color: #666; /* 稍微加深 Tagline，與 Footer 形成層次 */
-            margin-top: 15px;
-            letter-spacing: 0.3em; 
-        }
+    .tagline {
+      font-size: 0.85rem;
+      font-weight: 200;
+      letter-spacing: 0.5em;
+      color: #888;
+      margin-bottom: 60px;
+      margin-left: 0.5em;
+    }
 
-        nav {
-            margin-top: 85px; /* 再次微調間距 */
-        }
+    nav a {
+      font-size: 0.75rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      color: #666;
+      text-decoration: none;
+      margin: 0 20px;
+      cursor: pointer;
+      transition: color 0.4s ease;
+    }
 
-        nav a {
-            text-decoration: none;
-            color: #999;
-            font-size: 0.75rem;
-            font-weight: 300;
-            letter-spacing: 0.2em;
-            margin: 0 25px;
-            transition: color 0.4s ease;
-            cursor: pointer;
-        }
+    nav a:hover {
+      color: #000;
+    }
 
-        nav a:hover { color: #000; }
+    .footer {
+      position: absolute;
+      bottom: 35px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.6rem;
+      color: #999;
+      letter-spacing: 0.15em;
+      font-weight: 200;
+    }
 
-        /* 修正：提升 Footer 的清晰度 */
-        .footer { 
-            position: absolute;
-            bottom: 35px; /* 稍微上移，避開手機底部的導航條 */
-            width: 100%;
-            text-align: center;
-            font-size: 0.6rem; 
-            color: #999; /* 修正：使用更清晰的高級灰，保證可讀性 */
-            letter-spacing: 0.15em;
-            font-weight: 200;
-        }
+    /* 高級感純白浮層樣式 */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #FFFFFF; /* 保持絕對純白 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+      z-index: 1000;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      max-width: 500px;
+      width: 85%;
+      text-align: left;
+      line-height: 2;
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: #333;
+      letter-spacing: 0.1em;
+      padding: 40px;
+    }
+
+    .modal-title {
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      margin-bottom: 30px;
+      color: #000;
+      border-bottom: 1px solid #EEE;
+      padding-bottom: 15px;
+    }
+
+    .modal-close {
+      margin-top: 40px;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: #999;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      text-align: right;
+    }
+
+    .modal-close:hover {
+      color: #000;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
 
@@ -79,14 +138,52 @@
     <h1>LUMINÉÉ</h1>
     <div class="tagline">精密 ． 極簡 ． 恆久</div>
     <nav>
-      <a onclick="alert('【01 / THE PURITY 純白之境】\n探索極致純色與光影層次的空間幾何。\n\n【02 / THE ESSENCE 幾何本質】\n透過精準線條與隱形收口結構，演繹「少即是多」的極簡住宅。\n\n【03 / THE SYMMETRY 空間秩序】\n高度定制化的商業與公共空間美學。')">WORKS</a>
-      <a onclick="alert('LUMINÉÉ 由擁有二十五年資深履歷的室內設計師 Kodi Chan 創立。我們尊崇「Less is More」的減法美學，摒棄一切冗餘，聚焦於純白意象與幾何線條的極致純粹。\n\n對於空間，我們執著於毫米級的工藝細節，將精密的構造（如 10mm Shadow Gap 陰角收口）隱匿於無形。結合專業攝影師對光影的敏銳感知，將空間凝練為恆久的藝術。')">ABOUT</a>
-      <a onclick="alert('空間的蛻變，始於一場關於美學的對話。\n\nLUMINÉÉ 採取完全預約制，提供一對一高訂設計諮詢，期待與您共同探尋空間的純粹本質。\n\nEMAIL：info@lumineedesign.com')">CONTACT</a>
+      <a onclick="openModal('worksModal')">WORKS</a>
+      <a onclick="openModal('aboutModal')">ABOUT</a>
+      <a onclick="openModal('contactModal')">CONTACT</a>
     </nav>
+  </div>
+
+  <div id="worksModal" class="modal-overlay" onclick="closeModal('worksModal')">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="modal-title">WORKS ／ 作品集</div>
+      <p><strong>01 / THE PURITY（純白之境）</strong><br>探索極致純色與光影層次的空間幾何。</p>
+      <p><strong>02 / THE ESSENCE（幾何本質）</strong><br>透過精準線條與隱形收口結構，演繹「少即是多」的極簡住宅。</p>
+      <p><strong>03 / THE SYMMETRY（空間秩序）</strong><br>高度定制化的商業與公共空間美學。</p>
+      <div class="modal-close" onclick="closeModal('worksModal')">CLOSE ✕</div>
+    </div>
+  </div>
+
+  <div id="aboutModal" class="modal-overlay" onclick="closeModal('aboutModal')">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="modal-title">ABOUT ／ 關於我們</div>
+      <p>LUMINÉÉ 由擁有二十五年資深履歷的室內設計師 Kodi Chan 創立。我們尊崇「Less is More」的減法美學，摒棄一切冗餘，聚焦於純白意象與幾何線條的極致純粹。</p>
+      <p>對於空間，我們執著於毫米級的工藝細節，將精密的構造（如 10mm Shadow Gap 陰角收口）隱匿於無形。結合專業攝影師對光影的敏銳感知，將空間凝練為恆久的藝術。</p>
+      <p>我們不盲從潮流，只為追求生活品質的您，量身定制兼具極簡美學與機能結構的高訂空間。</p>
+      <div class="modal-close" onclick="closeModal('aboutModal')">CLOSE ✕</div>
+    </div>
+  </div>
+
+  <div id="contactModal" class="modal-overlay" onclick="closeModal('contactModal')">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="modal-title">CONTACT ／ 聯絡我們</div>
+      <p>空間的蛻變，始於一場關於美學的對話。LUMINÉÉ 採取完全預約制，提供一對一高訂設計諮詢，期待與您共同探尋空間的純粹本質。</p>
+      <p style="margin-top: 20px;"><strong>DESIGN STUDIO：</strong>LUMINÉÉ DESIGN<br>
+      <strong>EMAIL：</strong>info@lumineedesign.com<br>
+      <strong>WEBSITE：</strong>lumineedesign.com</p>
+      <div class="modal-close" onclick="closeModal('contactModal')">CLOSE ✕</div>
+    </div>
   </div>
 
   <div class="footer">© 2026 LUMINÉÉ. ALL RIGHTS RESERVED.</div>
 
+  <script>
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+  </script>
 </body>
-
 </html>
