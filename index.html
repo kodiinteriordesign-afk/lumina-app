@@ -75,7 +75,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #FFFFFF; /* 保持絕對純白 */
+      background-color: #FFFFFF;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -91,25 +91,58 @@
     }
 
     .modal-content {
-      max-width: 500px;
+      max-width: 550px;
       width: 85%;
+      max-height: 80vh;
+      overflow-y: auto;
       text-align: left;
-      line-height: 2;
+      line-height: 1.8;
       font-size: 0.85rem;
       font-weight: 300;
       color: #333;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       padding: 40px;
+    }
+
+    /* 隱藏滾動條但保持功能 */
+    .modal-content::-webkit-scrollbar {
+      width: 4px;
+    }
+    .modal-content::-webkit-scrollbar-thumb {
+      background: #EEE;
     }
 
     .modal-title {
       font-size: 1rem;
       font-weight: 400;
       letter-spacing: 0.2em;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
       color: #000;
       border-bottom: 1px solid #EEE;
       padding-bottom: 15px;
+    }
+
+    .modal-content h3 {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: #000;
+      margin-top: 20px;
+      margin-bottom: 5px;
+      letter-spacing: 0.05em;
+    }
+
+    .modal-content p {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    .verdict {
+      margin-top: 30px;
+      padding-top: 15px;
+      border-top: 1px dashed #EEE;
+      font-style: italic;
+      color: #666;
     }
 
     .modal-close {
@@ -146,10 +179,23 @@
 
   <div id="worksModal" class="modal-overlay" onclick="closeModal('worksModal')">
     <div class="modal-content" onclick="event.stopPropagation()">
-      <div class="modal-title">WORKS ／ 作品集</div>
-      <p><strong>01 / THE PURITY（純白之境）</strong><br>探索極致純色與光影層次的空間幾何。</p>
-      <p><strong>02 / THE ESSENCE（幾何本質）</strong><br>透過精準線條與隱形收口結構，演繹「少即是多」的極簡住宅。</p>
-      <p><strong>03 / THE SYMMETRY（空間秩序）</strong><br>高度定制化的商業與公共空間美學。</p>
+      <div class="modal-title">WORKS ／ 極致工藝構造</div>
+      <p style="font-weight: 400; color: #000; margin-bottom: 25px;">在 LUMINÉÉ 的美學世界裡，結構即是裝飾，精密即是永恆。我們將二十五年來對空間構造的深刻理解，傾注於毫米級的微觀世界。這不是單純的施工工藝，而是融於空間骨骼的視覺藝術。</p>
+      
+      <h3>01 / 海棠角圓弧與 T 型槽（The Begonia Corner）</h3>
+      <p>打破傳統 45 度斜切的視覺妥協。透過精細雕刻的圓弧遮渡，消除銳利邊角，讓天然木紋在轉角處如行雲流水般無縫延伸。隱形結構與全榫卯鎖定，在完全無外露五金的前提下，構築起極致純粹的視覺秩序與結構強度。</p>
+      
+      <h3>02 / 內外角斜切鎖榫（Corner Mitre Lock）</h3>
+      <p>將精密的構造隱匿於無形。毫米級的精準多平面卯眼鎖定（Multi-Planar Mortise Interlock），配合榫頭主動插入，保證了結構的絕對剛性。讓光影無阻礙地流淌於外部輪廓，呈現毫無斷裂感的空間線條。</p>
+      
+      <h3>03 / 精密陰影鏈裝配（Precision Shadow Gap Assembly）</h3>
+      <p>LUMINÉÉ 標誌性的陰影線（Shadow Gap）絕非一條簡單的縫隙，而是結構美學的宣言。12mm 的斜切面配合預製的精密陰角收口，隱匿於木紋肌理深處，用精準的幾何陰影界定出高級空間的層次與界線。</p>
+      
+      <div class="verdict">
+        <strong>總監評語 ｜ Kodi's Verdict：</strong><br>
+        「細節決定了平庸與頂級的界線。完美的收口與隱形結構，是 LUMINÉÉ 對空間最浪漫的偏執。我們隱藏技術，只為將最純粹、最恆久的生活容器，完整地交付給您。」
+      </div>
+      
       <div class="modal-close" onclick="closeModal('worksModal')">CLOSE ✕</div>
     </div>
   </div>
